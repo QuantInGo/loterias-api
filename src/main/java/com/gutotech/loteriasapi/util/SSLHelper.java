@@ -22,8 +22,14 @@ public class SSLHelper {
                     "Chrome/120.0.0.0 Safari/537.36"
                 )
                 .referrer("https://loterias.caixa.gov.br/")
-                .timeout(15000)
+                .header("Accept", "application/json, text/plain, */*")
+                .header("Accept-Language", "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7")
+                .header("Cache-Control", "no-cache")
+                .header("Pragma", "no-cache")
+                .header("Connection", "keep-alive")
+                .timeout(20000)
                 .ignoreContentType(true)
+                .ignoreHttpErrors(true) // <- importante
                 .sslSocketFactory(SSLHelper.socketFactory());
     }
 
