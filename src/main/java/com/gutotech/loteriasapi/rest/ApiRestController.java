@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.gutotech.loteriasapi.consumer.Consumer;
 
 import java.util.List;
 
@@ -20,6 +21,9 @@ import java.util.List;
 @RequestMapping("api")
 @Api(tags = "Loterias")
 public class ApiRestController {
+
+    @Autowired
+    private Consumer consumer;
 
     private static final String INVALID_LOTTERY_MESSAGE = "'%s' não é o id de nenhuma das loterias suportadas. Loterias suportadas: %s";
     private static final String RESULT_NOT_FOUND_MESSAGE = "Resultado não encontrado para \"%s\", concurso \"%d\"";
@@ -71,6 +75,20 @@ public class ApiRestController {
         if (resultado == null) {
             throw new ResourceNotFoundException(NO_RESULTS_FOUND_MESSAGE.formatted(loteria));
         }
+        return ResponseEntity.ok(resultado);
+    }
+
+    @GetMapping("test/{loteria}")
+    @ApiOperation(value = "Força leitura direta da Caixa, ignorando o Mongo (endpoint de diagnóstico).")
+    public ResponseEntity<Resultado> testFromCaixa(
+            @PathVariable @ApiParam(allowableValues = ALLOWABLE_VALUES, required = true) String loteria
+    ) throws Exception {
+
+        validateLottery(loteria);
+
+        // força chamada direta à Caixa
+        Resultado resultado = consumer.getResultado(loteria, "");
+
         return ResponseEntity.ok(resultado);
     }
 
