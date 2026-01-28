@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gutotech.loteriasapi.model.*;
+import com.gutotech.loteriasapi.model.exception.CaixaApiBlockedException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -51,7 +52,14 @@ public class Consumer {
 
         logger.info("Fetching from CAIXA: {}", url);
 
-        Document doc = httpConnectionService.get(url);
+        Document doc;
+        try {
+            doc = httpConnectionService.get(url);
+        } catch (Exception e) {
+            // Re-throw all exceptions including blocking exceptions
+            logger.error("Failed to fetch from CAIXA: {}", e.getMessage());
+            throw e;
+        }
 
         String body = doc.select("body").text();
         logger.info("CAIXA response for {} | len={}", url, body.length());

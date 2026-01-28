@@ -1,6 +1,7 @@
 package com.gutotech.loteriasapi.consumer;
 
 import com.gutotech.loteriasapi.util.SSLHelper;
+import com.gutotech.loteriasapi.model.exception.CaixaApiBlockedException;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -35,6 +36,12 @@ public class SSLHttpConnectionService implements HttpConnectionService {
             } catch (IOException e) {
                 lastException = e;
                 
+                // If it's an IP blocking error, don't retry
+                if (e instanceof CaixaApiBlockedException) {
+                    logger.error("IP Blocking detected - not retrying: {}", e.getMessage());
+                    throw e;
+                }
+                
                 if (attempt < maxRetries) {
                     long delayMs = calculateBackoff(attempt);
                     logger.warn("Attempt {}/{} failed for {}. Retrying in {}ms", 
@@ -47,7 +54,7 @@ public class SSLHttpConnectionService implements HttpConnectionService {
                         throw new IOException("Retry interrupted", ie);
                     }
                 } else {
-                    logger.error("All {} retry attempts failed for {}", maxRetries, url, e);
+                    logger.error("All {} retry attempts failed for {}", maxRetries, url);
                 }
             }
         }
@@ -69,24 +76,21 @@ public class SSLHttpConnectionService implements HttpConnectionService {
         
         // Check for WAF/bot blocking (403 with HTML)
         if (statusCode == 403) {
-            String errorPreview = responseBody.substring(0, Math.min(responseBody.length(), 150));
             if (responseBody.contains("<!DOCTYPE") || responseBody.contains("Forbidden") || 
                 responseBody.contains("Your IP")) {
-                logger.warn("IP Blocking detected (403) from CAIXA for {}. This is cloud/IP-based blocking.", url);
-                throw new IOException("HTTP 403 - IP Blocking by CAIXA WAF. Error: " + errorPreview);
+                logger.error("IP Blocking detected (403) from CAIXA for {}. Cloud IP is blocked by WAF.", url);
+                throw new CaixaApiBlockedException("CAIXA returned HTTP 403 - IP Blocking by WAF", 403, true);
             }
         }
         
-        // Detect other non-JSON responses (HTML, errors, etc)
+        // Detect other HTTP errors
         if (statusCode >= 400) {
-            logger.warn("HTTP Error {} for {}: {}", statusCode, url, 
-                responseBody.substring(0, Math.min(responseBody.length(), 200)));
+            logger.warn("HTTP Error {} for {}", statusCode, url);
             throw new IOException("HTTP " + statusCode + " for " + url);
         }
         
         if (!responseBody.trim().isEmpty() && !responseBody.trim().startsWith("{")) {
-            logger.warn("Non-JSON response for {}: {}", url, 
-                responseBody.substring(0, Math.min(responseBody.length(), 200)));
+            logger.warn("Non-JSON response for {}", url);
             throw new IOException("Non-JSON response from " + url);
         }
 
@@ -96,7 +100,7 @@ public class SSLHttpConnectionService implements HttpConnectionService {
     private long calculateBackoff(int attemptNumber) {
         // Exponential backoff: 1s, 2s, 4s, etc. with some jitter
         long delay = initialDelayMs * (long) Math.pow(2, attemptNumber - 1);
-        long jitter = (long) (Math.random() * 1000); // 0-1s random
+        long jitter = (long) (Math.random() * 1000);
         return delay + jitter;
     }
 }

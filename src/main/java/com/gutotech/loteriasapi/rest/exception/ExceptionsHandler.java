@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.gutotech.loteriasapi.model.exception.CaixaApiBlockedException;
 import com.gutotech.loteriasapi.model.exception.ResourceNotFoundException;
 
 @ControllerAdvice
@@ -22,6 +23,27 @@ public class ExceptionsHandler {
                 System.currentTimeMillis(),
                 request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
+
+    @ExceptionHandler(CaixaApiBlockedException.class)
+    public ResponseEntity<ErrorResponse> handleCaixaApiBlocked(CaixaApiBlockedException exception,
+                                                               HttpServletRequest request) {
+        // Return 503 Service Unavailable for CAIXA blocking
+        // This signals to clients that the issue is temporary/external
+        HttpStatus status = HttpStatus.SERVICE_UNAVAILABLE;
+        
+        String message = exception.getMessage();
+        if (exception.isIpBlocking()) {
+            message += " (Cloud IP blocking - contact CAIXA to whitelist)";
+        }
+        
+        ErrorResponse errorResponse = new ErrorResponse(
+                status.value(),
+                status.getReasonPhrase(),
+                message,
+                System.currentTimeMillis(),
+                request.getRequestURI());
+        return ResponseEntity.status(status).body(errorResponse);
     }
 
     @ExceptionHandler(Exception.class)
