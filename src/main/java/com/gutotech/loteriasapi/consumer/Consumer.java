@@ -18,8 +18,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Component
 public class Consumer {
+
+    private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
     private final HttpConnectionService httpConnectionService;
 
@@ -42,8 +47,16 @@ public class Consumer {
             concurso = "";
         }
 
-        Document doc = httpConnectionService.get(baseUrl + loteria + "/" + concurso);
-        JSONObject jsonObject = new JSONObject(doc.select("body").text());
+        String url = baseUrl + loteria + "/" + concurso;
+
+        logger.info("Fetching from CAIXA: {}", url);
+
+        Document doc = httpConnectionService.get(url);
+
+        String body = doc.select("body").text();
+        logger.info("CAIXA response for {} | len={}", url, body.length());
+
+        JSONObject jsonObject = new JSONObject(body);
 
         ResultadoId resultadoId = new ResultadoId(loteria, jsonObject.getInt("numero"));
 
