@@ -56,7 +56,15 @@ public class Consumer {
         String body = doc.select("body").text();
         logger.info("CAIXA response for {} | len={}", url, body.length());
 
+        if (!body.trim().startsWith("{")) {
+            logger.error("CAIXA returned non-JSON for {} | first chars: {}",
+                    url,
+                    body.substring(0, Math.min(body.length(), 120)));
+            throw new RuntimeException("CAIXA returned non-JSON response");
+        }
+
         JSONObject jsonObject = new JSONObject(body);
+
 
         ResultadoId resultadoId = new ResultadoId(loteria, jsonObject.getInt("numero"));
 
