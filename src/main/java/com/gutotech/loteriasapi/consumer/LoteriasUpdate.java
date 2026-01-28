@@ -74,7 +74,7 @@ public class LoteriasUpdate {
                     try {
                         Resultado resultado = consumer.getResultado(loteria, String.valueOf(concurso));
                         resultadoService.save(resultado);
-                        logger.info("Saved result for {} {}", loteria, concurso);
+                        //logger.info("Saved result for {} {}", loteria, concurso);
                     } catch (Exception e) {
                         int total = tentativasMap.getOrDefault(loteria + "-" + concurso, 0);
 
