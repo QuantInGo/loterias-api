@@ -46,6 +46,10 @@ public class SSLHelper {
                 .header("Connection", "keep-alive")
                 .header("TE", "trailers")
                 
+                // Additional headers for cloud/proxy bypass attempts
+                .header("DNT", "1") // Do Not Track
+                .header("Upgrade-Insecure-Requests", "1")
+                
                 // Timeout and parsing configuration
                 .timeout(25000)
                 .followRedirects(true)
