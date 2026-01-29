@@ -27,9 +27,9 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Loterias API REST")
-                .description("API Gratuita de resultados de jogos das Loterias CAIXA.")
-                .version("1.0")
-                .contact(new Contact("Gustavo Alves", "https://github.com/guto-alves", "gustavoalvesb.dealmeida@gmail.com"))
+                .description("API de resultados de jogos das Loterias CAIXA.")
+                .version("2.0")
+                .contact(new Contact("Quantingo LTDA", "https://quantingo.com", "contact@quantingo.com"))
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
                 .build();
