@@ -23,16 +23,7 @@ Então se você achou este projeto interessante ou é útil para você de alguma
 
 **Escaneie** nosso QR CODE e doe qualquer valor!
 
-<img src="https://github.com/user-attachments/assets/2b857f15-eb0f-4db0-a1dc-4f97b085c429" width="150" height="150">
-
-
-### 2. Doar com PagBank
-
-Utilize o link do PagBank para doar utilizando outras formas como: Cartão de Crédito, Débito e Boleto.
-
-**Para doar copie e cole no seu navegador o seguinte link**: https://pag.ae/7_9FuVnxG
-
-![Donate](https://stc.pagseguro.uol.com.br/public/img/botoes/doacoes/205x30-doar.gif) 
+<img src="https://github.com/user-attachments/assets/3b40ae1b-4424-4d3b-8dac-22dd66a624cd" width="150" height="150">
 
 ## Exemplos de Retorno
 Atualmente o banco de dados contém os jogos das loterias ...
