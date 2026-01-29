@@ -20,11 +20,11 @@ Se este projeto é útil para você de alguma forma, sua ajuda faz toda a difere
 
 ### Contribuições via PIX (valores sugeridos)
 
-| R$ 1.000 | R$ 100 | R$ 10 |
+| R$ 1.000 | R$ 100 | R$ 35 |
 |----------|--------|-------|
-| <div align="center"><img src="https://github.com/user-attachments/assets/70e0726b-7617-4644-b8aa-5cc51bcd0b12" width="140"><br><strong>Apoio premium</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/7d0c1a16-67ef-452a-945c-bdd4b8e0ceed" width="140"><br><strong>Apoio master</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/04c256d9-5dde-43dc-9778-06635c912b63" width="140"><br><strong>Apoio simbólico</strong></div> |
+| <div align="center"><img src="https://github.com/user-attachments/assets/70e0726b-7617-4644-b8aa-5cc51bcd0b12" width="140"><br><strong>Apoio premium</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/7d0c1a16-67ef-452a-945c-bdd4b8e0ceed" width="140"><br><strong>Apoio fundamental</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/11681c54-7775-4c46-88ae-9b22a71d164c" width="140"><br><strong>Apoio básico</strong></div> |
 | Apoio forte para garantir a continuidade do projeto por 1 ano | Contribuição significativa para os custos mensais | Ajuda simbólica para manter o serviço ativo |
-| Para quem depende do serviço | Para quem usa com frequência | Ideal para quem quer apenas colaborar |
+| Para quem depende do serviço | Para quem usa com alguma frequência | Ideal para quem quer apenas colaborar |
 
 Após fazer sua contribuição entre em contato através do email [support@quantingo.com](support@quantingo.com).
 
