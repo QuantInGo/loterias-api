@@ -1,8 +1,5 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 ![GitHub stars](https://img.shields.io/github/stars/guto-alves/loterias-api)
-<a href="https://t.me/+VNG9nOMxG1NkMTEx">
-<img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="20" />
-</a>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48946749/147809259-e7b15a3b-2e90-42c2-abaf-a6cacdc77e03.png">
@@ -15,20 +12,31 @@
 
 ## Doação (*Importante!*)
 
-A API é 100% gratuita. Porém ela está hospedada no [Heroku](https://www.heroku.com/) que recentemente [parou de oferecer planos de produtos gratuitos](https://blog.heroku.com/next-chapter), portanto agora há custos para mantê-la.
+A hospedagem desta API é feita em um servidor que **não é gratuito**.  
+Para que o projeto continue online, funcional e acessível a todos, existem custos mensais inevitáveis.
 
-Então se você achou este projeto interessante ou é útil para você de alguma forma, por favor considere fazer uma doação para ajudar com os custos da hospedagem, qualquer valor ajudará.
+Por isso, pedimos uma **gentil contribuição** de sua parte.  
+Se este projeto é útil para você de alguma forma, sua ajuda faz toda a diferença para mantê-lo vivo.
 
-### 1. Doar pelo QR CODE PIX
+### Contribuições via PIX (valores sugeridos)
 
-**Escaneie** nosso QR CODE e doe qualquer valor!
+| R$ 1.000 | R$ 100 | R$ 10 |
+|----------|--------|-------|
+| <div align="center"><img src="https://github.com/user-attachments/assets/70e0726b-7617-4644-b8aa-5cc51bcd0b12" width="140"><br><strong>Apoio premium</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/7d0c1a16-67ef-452a-945c-bdd4b8e0ceed" width="140"><br><strong>Apoio master</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/04c256d9-5dde-43dc-9778-06635c912b63" width="140"><br><strong>Apoio simbólico</strong></div> |
+| Apoio forte para garantir a continuidade do projeto por 1 ano | Contribuição significativa para os custos mensais | Ajuda simbólica para manter o serviço ativo |
+| Para quem depende do serviço | Para quem usa com frequência | Ideal para quem quer apenas colaborar |
 
-<img src="https://github.com/user-attachments/assets/3b40ae1b-4424-4d3b-8dac-22dd66a624cd" width="150" height="150">
+Após fazer sua contribuição entre em contato através do email [support@quantingo.com](support@quantingo.com).
+
+Caso queira contribuir com um valor maior, entre em contato conosco.
+
+## Endereço base da API
+O BASEADDRESS da API será informado quando você fizer sua doação. Nos campos abaixo, substitua `<BASEADDRESS>` pelo endereço fornecido.
 
 ## Exemplos de Retorno
 Atualmente o banco de dados contém os jogos das loterias ...
 
-https://loteriascaixa-api.herokuapp.com/api
+`<BASEADDRESS>`/api
 
 ```
 [
@@ -47,11 +55,9 @@ https://loteriascaixa-api.herokuapp.com/api
 
 ### **Obtendo o Resultado Mais Recente**
 
-URL BASE: ```https://loteriascaixa-api.herokuapp.com/api/<loteria>/latest```
+URL BASE: ```https://<BASEADDRESS>/api/<loteria>/latest```
 
-Apenas substitua ```<loteria>``` pelo nome da loteria desejada. Por exemplo, consultando pelo resultado da Mega-Sena (```megasena```) mais recente: 
-
-https://loteriascaixa-api.herokuapp.com/api/megasena/latest
+Apenas substitua ```<loteria>``` pelo nome da loteria desejada. 
 
 ```
 {
@@ -147,10 +153,10 @@ https://loteriascaixa-api.herokuapp.com/api/megasena/latest
  
 Para mais informações sobre todas as operações da API acesse: 
 
-https://loteriascaixa-api.herokuapp.com/swagger-ui/#/Loterias
+**https://<BASEADDRESS>/swagger-ui/#/Loterias**
 
 ![image](https://user-images.githubusercontent.com/48946749/144352143-7140d64d-43a9-465c-b12c-7d5d3514ccd5.png)
 
 ## Contribuição
 
-Quaisquer contribuições para este repositório são bem-vindas! Em caso de problema, dúvida ou dificuldade não hesite em criar uma [Issue](https://github.com/guto-alves/loterias-api/issues).
+Quaisquer contribuições para este repositório são bem-vindas! 
