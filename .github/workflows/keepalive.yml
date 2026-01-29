@@ -1,0 +1,14 @@
+name: Keep API Alive
+
+on:
+  schedule:
+    - cron: "*/8 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API
+        run: |
+          curl -s https://loterias-api-sspn.onrender.com/api/timemania > /dev/null
