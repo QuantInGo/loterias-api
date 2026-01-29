@@ -25,9 +25,6 @@ Se este projeto é útil para você de alguma forma, sua ajuda faz toda a difere
 | Apoio forte para garantir a continuidade do projeto por 1 ano | Contribuição significativa para os custos mensais | Ajuda simbólica para manter o serviço ativo |
 | Para quem depende do serviço | Para quem usa com alguma frequência | Ideal para quem quer apenas colaborar |
 
-<img width="397" height="410" alt="image" src="https://github.com/user-attachments/assets/ad4bb15d-9b82-4e50-a5c9-b035ccaffff8" />
-
-
 Após fazer sua contribuição entre em contato através do email [support@quantingo.com](support@quantingo.com).
 
 Caso queira contribuir com um valor maior, entre em contato conosco.
