@@ -9,7 +9,6 @@
   </p>
 </p>
 
-
 ## Doação (*Importante!*)
 
 A hospedagem desta API é feita em um servidor que **não é gratuito**.  
@@ -22,9 +21,12 @@ Se este projeto é útil para você de alguma forma, sua ajuda faz toda a difere
 
 | R$ 1.000 | R$ 100 | R$ 35 |
 |----------|--------|-------|
-| <div align="center"><img src="https://github.com/user-attachments/assets/70e0726b-7617-4644-b8aa-5cc51bcd0b12" width="140"><br><strong>Apoio premium</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/7d0c1a16-67ef-452a-945c-bdd4b8e0ceed" width="140"><br><strong>Apoio fundamental</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/11681c54-7775-4c46-88ae-9b22a71d164c" width="140"><br><strong>Apoio básico</strong></div> |
+| <div align="center"><img src="https://github.com/user-attachments/assets/ad4bb15d-9b82-4e50-a5c9-b035ccaffff8" width="140"><br><strong>Apoio premium</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/7d0c1a16-67ef-452a-945c-bdd4b8e0ceed" width="140"><br><strong>Apoio fundamental</strong></div> | <div align="center"><img src="https://github.com/user-attachments/assets/11681c54-7775-4c46-88ae-9b22a71d164c" width="140"><br><strong>Apoio básico</strong></div> |
 | Apoio forte para garantir a continuidade do projeto por 1 ano | Contribuição significativa para os custos mensais | Ajuda simbólica para manter o serviço ativo |
 | Para quem depende do serviço | Para quem usa com alguma frequência | Ideal para quem quer apenas colaborar |
+
+<img width="397" height="410" alt="image" src="https://github.com/user-attachments/assets/ad4bb15d-9b82-4e50-a5c9-b035ccaffff8" />
+
 
 Após fazer sua contribuição entre em contato através do email [support@quantingo.com](support@quantingo.com).
 
