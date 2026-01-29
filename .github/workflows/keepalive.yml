@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Ping API
         run: |
-          curl -s https://loterias-api-sspn.onrender.com/api/timemania > /dev/null
+          curl -s https://loterias-api-sspn.onrender.com/api/megasena > /dev/null
